@@ -6,27 +6,22 @@
   (:gen-class))
 
 
-(defn convert [image]
-  (shell/sh "flif"  "-e"  "-E 100" (str  image ".png") (str image ".flif") :dir "images" )
+(defn convert [image-name]
+  (let [image (first (str/split (first  (str/split image-name #"\.")) #"\n"))]
+    (shell/sh "flif"  "-e"  "-E 100" (str  image ".png") (str image ".flif") :dir "images" ))
   )
-(defn image-split [image]
-  (convert (first (str/split (first  (str/split image #"\.")) #"\n"))))
-
+(defn future-maker [x] (future (convert x)))
 (defn get-images []
-  (map image-split
+  (map future-maker
        (str/split (:out (shell/sh "ls" :dir "images")) #"\n")))
 
 (defn multi-thread []
-  (do
-    (get-images)
-    (get-images)
-    (get-images)
-    (get-images)
-    (get-images)
-    (get-images)
-    (get-images))
-  )
+    (for [x [(range 0 5)]]
+      (future-call get-images)
+      )) wd
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (multi-thread))
+(defn doot []
+  (println "egg"))
