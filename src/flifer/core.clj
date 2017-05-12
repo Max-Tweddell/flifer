@@ -5,10 +5,6 @@
             )
   (:gen-class))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (multi-thread))
 
 (defn convert [image]
   (shell/sh "flif"  "-e"  "-E 100" (str  image ".png") (str image ".flif") :dir "images" )
@@ -30,3 +26,7 @@
     (get-images)
     (get-images))
   )
+(defn -main
+  "I don't do a whole lot ... yet."
+  [& args]
+  (multi-thread))
