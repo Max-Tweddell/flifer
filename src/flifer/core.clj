@@ -17,6 +17,4 @@
 
 (defn -main
   "I don't do a whole lot ... yet."
-  [& args]
-  (multi-thread))
-(defn blerg [] (+ 2 2))
+  [& args])
