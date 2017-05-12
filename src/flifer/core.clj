@@ -12,16 +12,11 @@
   )
 (defn future-maker [x] (future (convert x)))
 (defn get-images []
-  (map future-maker
-       (str/split (:out (shell/sh "ls" :dir "images")) #"\n")))
+  (map future-maker (take 8
+                          (str/split (:out (shell/sh "ls" :dir "images")) #"\n"))))
 
-(defn multi-thread []
-    (for [x [(range 0 5)]]
-      (future-call get-images)
-      )) wd
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (multi-thread))
-(defn doot []
-  (println "egg"))
+(defn blerg [] (+ 2 2))
