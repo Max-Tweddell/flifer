@@ -1,36 +1,22 @@
 # flifer
+This is a program that converts PNG files to FLIF files automatically
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
 
 ## Usage
+the FLIF binary is required
 
-FIXME: explanation
+explanation
 
-    $ java -jar flifer-0.1.0-standalone.jar [args]
+    $ java -jar flifer-0.1.0-standalone.jar 
 
-## Options
-
-FIXME: listing of options this app accepts.
+a folder called images needs to be in the same directory as the jar
 
 ## Examples
 
 ...
 
 ### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
+Does not work on windows 
 ## License
 
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under GPL 3.0
